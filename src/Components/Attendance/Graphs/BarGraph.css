@@ -1,0 +1,105 @@
+.bar-graph-container {
+    display: flex;
+    align-items: flex-end;
+    padding: 5px;
+}
+
+.y-axis-labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+.y-axis-labels span {
+    font-size: 14px;
+}
+
+.bar-graph {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding-top: 7.7px;
+    padding-left: 5px;
+}
+
+.bar-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bar {
+    width: 40px;
+    position: absolute;
+    transition: height 0.3s ease;
+}
+
+.date-label {
+    font-size: 12px;
+    margin-top: 20px;
+    color: #000;
+    transform: rotate(-45deg);
+    /* Rotate for better fit */
+}
+
+.bar-date {
+    font-size: 10px;
+    position: absolute;
+    margin-top: -27px;
+    text-align: center;
+    line-height: 9px;
+    margin-left: 4px;
+}
+
+.shift-endTime {
+    position: absolute;
+    border-top: 2px dotted red;
+    width: 32px;
+}
+
+.shift-startTime {
+    position: absolute;
+    border-top: 2px dotted green;
+    width: 32px;
+}
+
+.y-axis-time {
+    font-size: 10px;
+}
+
+.vertical-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Distribute space evenly */
+    align-items: center;
+    padding-right: 15px;
+}
+
+.vertical-line {
+    width: 1px;
+    /* Thin vertical line */
+    flex-grow: 1;
+    /* Dynamically adjust height to fill space */
+    background-color: black;
+    /* Line color */
+    border: none;
+    /* Removes default border of hr */
+    margin: 0;
+    /* No margin around lines */
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    /* Vertical text flow */
+    transform: rotate(180deg);
+    /* Corrects orientation for readability */
+    font-size: 12px;
+    /* Adjust size as needed */
+    text-align: center;
+    margin: 0 5px;
+    /* Space between text and hr */
+}

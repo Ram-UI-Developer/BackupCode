@@ -1,0 +1,82 @@
+/* .payslip-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .header {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    width: 100%;
+    height: auto;
+  }
+  
+  .company-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .employee-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .employee-detail {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .earnings-deductions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .earnings, .deductions {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .earning-detail, .deduction-detail {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .netpay {
+    text-align: center;
+    margin-top: 20px;
+  }
+   */
+
+/* .table {
+    width: 100%; 
+    table-layout: fixed; 
+  } */
+/*   
+  .table th, .table td {
+    word-wrap: break-word; 
+    white-space: normal;   
+    padding: 8px;          
+  } */
+
+.card {
+    overflow: hidden; /* Prevent any overflow from the card */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds spacing between rows */
+}
+
+.row-debug {
+    height: 22px;
+}

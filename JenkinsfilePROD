@@ -1,0 +1,188 @@
+pipeline {
+    agent any
+
+    environment {
+        IMAGE_NAME = "infyshinetech/webui"
+        KUBECONFIG = "C:\\Users\\infyshine\\.kube\\config"
+    }
+
+    stages {
+        stage('prod Image Backup') {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'docker') {
+                        docker.image("${IMAGE_NAME}:prod").pull()
+                        bat "docker tag ${IMAGE_NAME}:prod ${IMAGE_NAME}:prod-prev"
+                        docker.image("${IMAGE_NAME}:prod-prev").push()
+                        bat "docker rmi ${IMAGE_NAME}:prod ${IMAGE_NAME}:prod-prev"
+                    }
+                }
+            }
+        }
+
+        stage('Pull From Docker Hub') {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'docker') {
+                        docker.image("${IMAGE_NAME}:uat").pull()
+                    }
+                }
+            }
+        }
+
+        stage('Tag uat as prod and Push') {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'docker') {
+                        bat "docker tag ${IMAGE_NAME}:uat ${IMAGE_NAME}:prod"
+                        docker.image("${IMAGE_NAME}:prod").push()
+                    }
+                }
+            }
+        }
+
+        stage('Delete Images') {
+            steps {
+                script {
+                    bat "docker rmi ${IMAGE_NAME}:uat ${IMAGE_NAME}:prod"
+                }
+            }
+        }
+
+        stage('Deploy to Prod') {
+            steps {
+                script {
+                    withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                        bat 'kubectl config use-context hrdome_prod'
+                        bat 'kubectl rollout restart deployment/webui-deployment -n prod'
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+    success {
+        // Send success email only if the build is successful
+        mail(
+            to: 'testing@infyshine.com',
+            cc: 'devops@infyshine.com, ui@infyshine.com',
+            subject: "Deployed Successfully_${JOB_NAME}_${env.BUILD_NUMBER}",
+            body: """
+            <!DOCTYPE html>
+            <html>
+            <style>
+                table, th, td {
+                    border: 1px solid black;
+                    border-style: none;
+                }
+            </style>
+            <body>
+                <div>
+                    <p style="background-color: green; text-align: center; color: aliceblue; height: 30px; font-size: 20px; padding-top: 5px;">
+                        SUCCESS
+                    </p>
+                </div>
+                <table style="width:100%">
+                    <tr>
+                        <td>Deployment Status</td>
+                        <td>: Success</td>
+                    </tr>
+                    <tr>
+                        <td>Job</td>
+                        <td>: ${JOB_NAME}</td>
+                    </tr>
+                    <tr>
+                        <td>Deployment Number</td>
+                        <td>: ${env.BUILD_NUMBER}</td>
+                    </tr>
+                    <tr>
+                        <td>Environment</td>
+                        <td>: PROD</td>
+                    </tr>
+                    <tr>
+                        <td>Deployment URL</td>
+                        <td>: ${env.ENV_URL}</td>
+                    </tr>
+                    <tr>
+                        <td>Committed by</td>
+                        <td>: ${env.COMMITTED_BY}</td>
+                    </tr>
+                    <tr>
+                        <td>Commit message</td>
+                        <td>: ${env.COMMIT_MSG}</td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td>: The Deployment of image ${IMAGE_NAME}:prod is Success in PROD Environment</td>
+                    </tr>
+                </table>
+            </body>
+            </html>""",
+            mimeType: 'text/html',
+            from: 'onboarding@infyshine.com'
+        )
+    }
+    failure {
+        // Send failure email only if the build fails
+        mail(
+            to: 'testing@infyshine.com',
+            cc: 'devops@infyshine.com, ui@infyshine.com',
+            subject: "Deployment Failed_${JOB_NAME}_${env.BUILD_NUMBER}",
+            body: """
+            <!DOCTYPE html>
+            <html>
+            <style>
+                table, th, td {
+                    border: 1px solid black;
+                    border-style: none;
+                }
+            </style>
+            <body>
+                <div>
+                    <p style="background-color: red; text-align: center; color: aliceblue; height: 30px; font-size: 20px; padding-top: 5px;">
+                        FAILED
+                    </p>
+                </div>
+                <table style="width:100%">
+                    <tr>
+                        <td>Deployment Status</td>
+                        <td>: Failed</td>
+                    </tr>
+                    <tr>
+                        <td>Job</td>
+                        <td>: ${JOB_NAME}</td>
+                    </tr>
+                    <tr>
+                        <td>Deployment Number</td>
+                        <td>: ${env.BUILD_NUMBER}</td>
+                    </tr>
+                    <tr>
+                        <td>Environment</td>
+                        <td>: PROD</td>
+                    </tr>
+                    <tr>
+                        <td>Deployment URL</td>
+                        <td>: ${env.ENV_URL}</td>
+                    </tr>
+                    <tr>
+                        <td>Committed by</td>
+                        <td>: ${env.COMMITTED_BY}</td>
+                    </tr>
+                    <tr>
+                        <td>Commit message</td>
+                        <td>: ${env.COMMIT_MSG}</td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td>: The Deployment of image ${IMAGE_NAME}:prod is Failed in PROD Environment</td>
+                    </tr>
+                </table>
+            </body>
+            </html>""",
+            mimeType: 'text/html',
+            from: 'onboarding@infyshine.com'
+        )
+    }
+}
+}

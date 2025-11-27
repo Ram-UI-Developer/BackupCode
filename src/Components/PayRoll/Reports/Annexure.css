@@ -1,0 +1,165 @@
+.annexure-container {
+    width: 600px;
+    margin: auto;
+    background: #f0f4f8;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* table tr:nth-child(even) {
+    background: none
+} */
+
+.borderNone {
+    border: 'none' !important;
+}
+
+.annexure-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ctc-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.ctc-input label {
+    font-size: 1.2rem;
+}
+
+.ctc-input input {
+    width: 250px;
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.annexure-main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.salary-section {
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.salary-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.salary-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.salary-column {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.salary-column h3 {
+    font-size: 1.1rem;
+}
+
+.salary-column table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.salary-column table td {
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+}
+
+.salary-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffe7c4;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.benefits-section {
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.benefits-section h3 {
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.benefits-section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.benefits-section table td {
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+}
+
+.ctc-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #d4f7d4;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.annexure-footer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.download-button {
+    background: #ffbf43;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-button {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.table {
+    border: none;
+}
+
+.tooltipStyle {
+    background-color: '#007bff';
+    color: '#fff';
+    border-radius: '5px';
+    padding: '5px';
+    font-size: '14px';
+    font-weight: 'bold';
+    box-shadow: '0px 0px 10px rgba(0, 0, 0, 0.1)';
+}

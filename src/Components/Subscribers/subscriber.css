@@ -1,0 +1,30 @@
+.textField {
+    margin-left: 0px;
+}
+
+.textFieldSub {
+    margin-left: -60px;
+}
+
+select.dropDown {
+    margin-left: 0px;
+}
+
+.form-control {
+    border: 1px solid skyblue;
+}
+
+div.select.col-md-6 {
+    margin-left: 0px;
+}
+
+div.foundationdate.col-md-6 {
+    margin-left: -60px;
+}
+.sub {
+    margin-left: 30px;
+    margin-right: -30px;
+}
+.foundation {
+    margin-left: -15px;
+}

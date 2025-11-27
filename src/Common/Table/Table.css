@@ -1,0 +1,148 @@
+/* .payRunTable-wrapper {
+    position: relative;
+    width: 100%;
+    overflow-x: auto;
+ }
+ 
+ .payRunTable-container {
+    display: inline-block;
+    min-width: 100%;
+    background-color: #FFF;
+ }
+ 
+
+ 
+ th.fixed.text-left:nth-child(1),
+ td.fixed.align-middle:nth-child(1) {
+    position: sticky;
+    left: 0;
+    max-width: 120px;
+    padding-right: 0px;
+ }
+ 
+ th.fixed.text-left:nth-child(2),
+ td.fixed.align-middle:nth-child(2) {
+    position: sticky;
+    left: 120px; 
+    width: 150px;
+    padding-right: 0px;
+ }
+ 
+ th.fixed.text-left:nth-last-child(1),
+ td.scrollable-td:nth-last-child(1) {
+    position: sticky;
+    right: 0;
+    width: 5.1rem; 
+    vertical-align: middle;
+    padding-right: 0px;
+ }
+ 
+ th.fixed.text-left:nth-last-child(2),
+ td.scrollable-td:nth-last-child(2) {
+    position: sticky;
+    right: 8.035rem; 
+    vertical-align: middle;
+    padding-right: 0px;
+ }
+ 
+ th.scrollable.text-left:nth-child(n+3):nth-last-child(n+3),
+ td.scrollable.align-middle:nth-child(n+3):nth-last-child(n+3) {
+    position: relative;
+    z-index: 0; 
+    width: 6rem;
+    background-color: inherit; 
+    border: 1px solid #C2EEFF;
+   padding: 0px;
+ }
+ th.fixed.text-left,
+ td.fixed.align-middle,
+ td.scrollable-td{
+    background-color: #F1F9FC;
+    z-index: 3; 
+    padding-right: 0px;
+    border: 1px solid #C2EEFF;
+ }
+ 
+ .border{
+   border: 1px solid #C2EEFF;
+ }
+
+ th.timeSheetHeader:nth-child(1) {
+    padding-right: 0px;
+ }
+  */
+
+/* Table container for horizontal and vertical scrolling */
+.table-container {
+    width: 100%;
+    max-height: 57vh;
+    overflow: auto !important;
+    position: relative;
+    border: 1px solid #ccc;
+}
+
+/* Sticky table styling */
+.sticky-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.sticky-table th,
+.sticky-table td {
+    /* padding: 10px; */
+    border: 0.5px solid #ccc;
+    text-align: left;
+    /* background: #f9f9f9; */
+}
+
+/* Sticky headers */
+.sticky-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1; /* Default z-index for headers */
+    background: #fff;
+    text-align: center;
+    color: #535353;
+}
+
+/* Sticky first two column headers */
+.sticky-table thead th.sticky-left {
+    z-index: 3; /* Higher z-index for first two column headers */
+}
+
+/* Sticky last two column headers */
+.sticky-table thead th.sticky-right {
+    z-index: 3; /* Higher z-index for last two column headers */
+}
+
+/* Sticky first two columns */
+.sticky-left {
+    position: sticky;
+    left: 0;
+    background: #f1f9fc !important;
+    z-index: 2; /* Higher than body cells */
+}
+
+.sticky-left:nth-child(2) {
+    left: 137.5px; /* Adjust based on column widths */
+}
+
+/* Sticky last two columns */
+.sticky-right {
+    position: sticky;
+    right: 0;
+    background: #f1f9fc !important;
+    z-index: 2; /* Higher than body cells */
+    text-align: center;
+}
+
+.sticky-right:nth-last-child(2) {
+    right: 8.5rem; /* Adjust based on column widths */
+}
+
+.sticky-table tfoot td {
+    position: sticky;
+    bottom: 0;
+    background: #f1f9fc !important;
+    z-index: 2;
+}

@@ -1,0 +1,12 @@
+.checkbox-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.col- .checkbox-grid-container .ant-checkbox-group-item {
+    /* display: flex; */
+    align-items: center;
+    /* justify-content: flex-start !important; */
+    padding: 5px;
+}

@@ -1,0 +1,10 @@
+module.exports = {
+  apps: [
+    {
+      name: "HR-Dome-Jenkins",
+      script: "node_modules/react-scripts/bin/react-scripts.js",
+      args: "start",
+      port:"3032"
+    },
+  ],
+}

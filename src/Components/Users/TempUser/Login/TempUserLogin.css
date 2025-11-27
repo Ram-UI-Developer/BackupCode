@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+}
+
+.body-sign .panel-sign .panel-body {
+    background: #fff;
+    border-top: 5px solid #007bff;
+    border-radius: 5px 0 5px 5px;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+    padding: 33px 33px 15px;
+}
+
+.clearfix:before,
+.clearfix:after,
+.dl-horizontal dd:before,
+.dl-horizontal dd:after,
+.container:before,
+.container:after,
+.container-fluid:before,
+.container-fluid:after,
+.row:before,
+.row:after,
+.form-horizontal .form-group:before,
+.form-horizontal .form-group:after,
+.btn-toolbar:before,
+.btn-toolbar:after,
+.btn-group-vertical > .btn-group:before,
+.btn-group-vertical > .btn-group:after,
+.nav:before,
+.nav:after,
+.navbar:before,
+.navbar:after,
+.navbar-header:before,
+.navbar-header:after,
+.navbar-collapse:before,
+.navbar-collapse:after,
+.pager:before,
+.pager:after,
+.panel-body:before,
+.panel-body:after,
+.modal-footer:before,
+.modal-footer:after {
+    content: ' ';
+    display: table;
+}
+
+body {
+    color: #777;
+    font-family: 'Open Sans', Arial, sans-serif;
+    line-height: 22px;
+    margin: 0;
+    font-size: 13px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+a,
+.btn-link {
+    color: #007bff;
+}
+.input-group-addon,
+.input-group-btn,
+.input-group .form-control {
+    display: table-cell;
+}
+
+.input-group-icon .input-group-addon span.icon,
+.input-search .input-group-addon span.icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border: 0;
+    z-index: 3;
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    padding: 6px 12px;
+    background: transparent;
+    line-height: 1.42857143;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    pointer-events: none;
+}
+.input-group-icon .input-group-addon span.icon.icon-lg,
+.input-search .input-group-addon span.icon.icon-lg {
+    padding: 10px 14px;
+    font-size: 18px;
+}
+.input-group-icon .input-group-addon:last-child span.icon,
+.input-search .input-group-addon:last-child span.icon {
+    left: auto;
+    right: 0;
+}
+.input-group-addon {
+    font-weight: normal;
+    color: #555555;
+}
+div {
+    display: block;
+}
+.body-sign .panel-sign .panel-title-sign .title {
+    background-color: #007bff;
+    border-radius: 5px 5px 0 0;
+    color: #fff;
+    display: inline-block;
+
+    font-size: 1.2rem;
+
+    line-height: 2rem;
+    padding: 13px 17px;
+    vertical-align: bottom;
+}
+.mr-xs {
+    margin-right: 5px !important;
+}
+.input-group-icon input.form-control:first-child {
+    border-radius: 4px;
+}
+.input-group-icon input.form-control {
+    font-size: 1.2rem;
+    padding-right: 36px;
+}
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    user-select: none;
+}
+body .btn-primary {
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgb(0 0 0 / 25%);
+    background-color: #007bff;
+    border-color: #007bff;
+}
+body .btn-primary:hover {
+    background-color: #1890ff;
+}
+body .btn {
+    white-space: normal;
+}
+.center-sign {
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+}
